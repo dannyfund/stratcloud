@@ -598,7 +598,10 @@ document.addEventListener("DOMContentLoaded", function () {
         chatContent.innerHTML += `<div class="text-right text-blue-600 my-2">你：${message}</div>`;
         chatInput.value = "";
         chatContent.scrollTop = chatContent.scrollHeight; // 滚动到底部
-
+const replacements = {
+    "讯飞星火认知大模型": "AI助手",
+    "科大讯飞": "AI公司"
+};
         // 发送请求到后端
         fetch('https://api.danny.hk/spark.php', {
             method: 'POST',
@@ -608,6 +611,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.message) {
+                function replaceKeywords(text) {
+                return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
+                }
                 chatContent.innerHTML += `<div class="text-left text-gray-700 my-2">助手：${data.message}</div>`;
             } else {
                 chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：服务器无响应</div>`;
