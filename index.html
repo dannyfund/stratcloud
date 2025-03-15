@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>成都云策金科科技有限公司 - 云计算解决方案与技术服务专家</title>
+    <meta name="description" content="成都云策金科科技有限公司专注于云计算、软件开发、AI应用、系统集成和技术咨询服务，依托腾讯云等先进技术，为客户提供全方位数字化转型解决方案。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- Prevent zooming -->
+    <script>
+        window.addEventListener("wheel", (e) => {
+            const isPinching = e.ctrlKey
+            if (isPinching) e.preventDefault()
+        }, { passive: false })
+    </script>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center">
+                <div class="text-2xl font-bold text-gradient">StratCloud</div>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-sm font-medium hover:text-blue-600 transition-colors">首页</a>
+                <a href="#about" class="text-sm font-medium hover:text-blue-600 transition-colors">关于我们</a>
+                <a href="#services" class="text-sm font-medium hover:text-blue-600 transition-colors">服务</a>
+                <a href="#partners" class="text-sm font-medium hover:text-blue-600 transition-colors">合作伙伴</a>
+                <a href="#contact" class="text-sm font-medium hover:text-blue-600 transition-colors">联系我们</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-sm font-medium hover:text-blue-600">首页</a>
+                <a href="#about" class="block py-2 text-sm font-medium hover:text-blue-600">关于我们</a>
+                <a href="#services" class="block py-2 text-sm font-medium hover:text-blue-600">服务</a>
+                <a href="#partners" class="block py-2 text-sm font-medium hover:text-blue-600">合作伙伴</a>
+                <a href="#contact" class="block py-2 text-sm font-medium hover:text-blue-600">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="hero-bg absolute inset-0"></div>
+        <div class="container mx-auto px-4 py-20 md:py-24 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                    赋能企业数字化转型，与您共赢未来
+                </h1>
+                <p class="text-xl text-white/90 mb-8 max-w-2xl">
+                    云计算、软件开发、人工智能、系统集成，一站式解决方案，助力企业高效运营
+                </p>
+                <a href="#contact"
+                    class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                    立即咨询
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">关于我们</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg leading-relaxed mb-8">
+                    成都云策金科科技有限公司是一家专注于信息技术领域的高科技企业，主要提供云计算解决方案、软件开发、AI应用、系统集成和技术咨询服务。依托腾讯云的先进技术架构，为客户提供从云基础设施搭建、数据存储、网络安全到智能化应用开发的全方位服务。
+                </p>
+                <p class="text-lg leading-relaxed mb-8">
+                    我们拥有丰富的行业经验和专业的技术团队，与腾讯云、火山引擎、华为云、AWS、谷歌云等知名云服务商建立了战略合作伙伴关系，致力于为客户提供安全、稳定、高效的数字化转型解决方案。
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-semibold mb-4">公司愿景</h3>
+                        <p class="text-gray-700">成为领先的数字化转型服务提供商，助力企业在数字时代取得成功。</p>
+                    </div>
+                    <div
+                        class="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-semibold mb-4">核心价值观</h3>
+                        <p class="text-gray-700">专业、创新、诚信、共赢，以客户需求为中心，提供卓越的技术服务。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">我们的服务</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-lg text-gray-700 mt-6 max-w-3xl mx-auto">
+                    我们提供全面的云计算、软件开发、人工智能和系统集成服务，旨在帮助企业实现数字化转型和业务增长
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cloud Computing -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
+                    <div class="mb-4 flex items-center justify-center">
+                        <div class="w-16 h-16">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.5 19H17.5M6.5 19C4.567 19 3 17.433 3 15.5M6.5 19C4.567 19 3 17.433 3 15.5M3 15.5C3 13.567 4.567 12 6.5 12M6.5 12C6.5 9.51472 8.51472 7.5 11 7.5H14C15.3807 7.5 16.5 8.61929 16.5 10C16.5 11.3807 15.3807 12.5 14 12.5H6.5"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M20.5 14C20.5 16.4853 18.4853 18.5 16 18.5" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M15.5 7.5C15.5 5.01472 17.5147 3 20 3" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">云计算解决方案</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        基于腾讯云、火山引擎、华为云等平台，提供灵活、可靠、安全的云计算解决方案，包括云服务器、云存储、云数据库等服务。
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                        了解更多
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Software Development -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
+                    <div class="mb-4 flex items-center justify-center">
+                        <div class="w-16 h-16">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 7L12 12L17 17M7 7L12 12L7 17" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">软件开发</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        提供定制化的软件开发服务，包括移动应用开发、Web应用程序开发、企业级软件开发等，采用敏捷开发模式，快速响应需求。
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                        了解更多
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- AI Applications -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
+                    <div class="mb-4 flex items-center justify-center">
+                        <div class="w-16 h-16">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8V12M12 16H12.01M9 3H15L21 9V15L15 21H9L3 15V9L9 3Z" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">人工智能应用</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        专注于人工智能在企业中的应用，提供AI聊天软件集成与定制、AI写作辅助工具、AI翻译解决方案等服务，提升效率与决策能力。
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                        了解更多
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- System Integration -->
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col">
+                    <div class="mb-4 flex items-center justify-center">
+                        <div class="w-16 h-16">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9 3H3.6C3.26863 3 3 3.26863 3 3.6V20.4C3 20.7314 3.26863 21 3.6 21H9M9 3V21M9 3H15M9 21H15M15 3H20.4C20.7314 3 21 3.26863 21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H15M15 3V21M3 9H21M3 15H21"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">系统集成</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        提供全面的系统集成服务，包括设备系统集成、应用系统集成、数据集成等，帮助企业构建稳定、高效、协同的IT系统。
+                    </p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                        了解更多
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <div class="feature-graphic rounded-xl overflow-hidden shadow-lg"></div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">为什么选择我们</h2>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">专业技术团队</h3>
+                                <p class="text-gray-700">拥有经验丰富的技术专家团队，熟悉各类云平台和技术架构</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">国际化视野</h3>
+                                <p class="text-gray-700">母公司位于香港，具有国际化视野和丰富的全球资源</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">一站式服务</h3>
+                                <p class="text-gray-700">从咨询规划到实施部署，再到运维管理，提供全生命周期的一站式服务</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">优质合作伙伴</h3>
+                                <p class="text-gray-700">与腾讯云、火山引擎、华为云等知名厂商建立深度合作关系</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners section -->
+    <section id="partners" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">合作伙伴</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-lg text-gray-700 mt-6 max-w-3xl mx-auto">
+                    我们与国内外领先的云服务提供商建立了战略合作伙伴关系，为客户提供优质的云计算解决方案
+                </p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-12">
+                <div class="flex items-center justify-center">
+                    <div class="h-10 md:h-12 partner-logo partner-tencent"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="h-10 md:h-12 partner-logo partner-volcano"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="h-10 md:h-12 partner-logo partner-huawei"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="h-10 md:h-12 partner-logo partner-aws"></div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="h-10 md:h-12 partner-logo partner-google"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">准备好开始您的数字化转型之旅了吗？</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">联系我们，一起探讨如何利用云计算、人工智能和系统集成技术，助力您的企业发展</p>
+            <a href="#contact"
+                class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                立即咨询
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">联系我们</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-lg text-gray-700 mt-6 max-w-3xl mx-auto">
+                    如果您有任何问题或需求，请随时联系我们，我们将竭诚为您服务
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 h-full">
+                        <h3 class="text-xl font-semibold mb-6">联系方式</h3>
+                        <ul class="space-y-6">
+                            <li class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-600 mb-1">地址</h4>
+                                    <p class="text-gray-800">四川省成都市武侯区高攀路26号-1</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-600 mb-1">邮箱</h4>
+                                    <a href="mailto:admin@StratCloud.cn"
+                                        class="text-gray-800 hover:text-blue-600 transition-colors">admin@StratCloud.cn</a>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-600 mb-1">网站</h4>
+                                    <a href="https://StratCloud.cn" target="_blank"
+                                        class="text-gray-800 hover:text-blue-600 transition-colors">StratCloud.cn</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-6">公司位置</h3>
+                            <div class="rounded-lg overflow-hidden h-64 bg-gray-200">
+                                <div class="map-container h-full w-full">
+                                    <!-- This would typically be a map iframe -->
+                                    <div class="flex items-center justify-center h-full">
+                                        <p class="text-gray-500">地图加载中...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                        <h3 class="text-xl font-semibold mb-6">发送消息</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">姓名</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">邮箱</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">电话</label>
+                                <input type="tel" id="phone" name="phone"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">消息内容</label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-colors"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg">
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">成都云策金科科技有限公司</h3>
+                    <p class="text-gray-400 mb-4">
+                        专注于信息技术领域，提供云计算解决方案、软件开发、AI应用、系统集成和技术咨询服务。
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">快速导航</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">服务</a></li>
+                        <li><a href="#partners" class="text-gray-400 hover:text-white transition-colors">合作伙伴</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-gray-400">四川省成都市武侯区高攀路26号-1</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <a href="mailto:admin@StratCloud.cn"
+                                class="text-gray-400 hover:text-white transition-colors">admin@StratCloud.cn</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                            <a href="https://www.StratCloud.cn" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors">StratCloud.cn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-400 text-sm">© 2025 成都云策金科科技有限公司. 保留所有权利.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
