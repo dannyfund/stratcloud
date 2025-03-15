@@ -143,7 +143,8 @@
                     <p class="text-gray-700 mb-4 flex-grow">
                         基于腾讯云、火山引擎、华为云等平台，提供灵活、可靠、安全的云计算解决方案，包括云服务器、云存储、云数据库等服务。
                     </p>
-                    <a href="/cloud.html" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                    <a href="/cloud.html"
+                        class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
                         了解更多
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +173,8 @@
                     <p class="text-gray-700 mb-4 flex-grow">
                         提供定制化的软件开发服务，包括移动应用开发、Web应用程序开发、企业级软件开发等，采用敏捷开发模式，快速响应需求。
                     </p>
-                    <a href="/software.html" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                    <a href="/software.html"
+                        class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
                         了解更多
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +227,8 @@
                     <p class="text-gray-700 mb-4 flex-grow">
                         提供全面的系统集成服务，包括设备系统集成、应用系统集成、数据集成等，帮助企业构建稳定、高效、协同的IT系统。
                     </p>
-                    <a href="/integration.html" class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
+                    <a href="/integration.html"
+                        class="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center">
                         了解更多
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -431,7 +434,7 @@
                 <div class="w-full md:w-1/2">
                     <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
                         <h3 class="text-xl font-semibold mb-6">发送消息</h3>
-                        <form>
+                        <form id="contactForm">
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">姓名</label>
                                 <input type="text" id="name" name="name"
@@ -457,6 +460,7 @@
                                 发送消息
                             </button>
                         </form>
+                        <div id="responseMessage" class="mt-3"></div>
                     </div>
                 </div>
             </div>
@@ -543,6 +547,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- 远程 JavaScript 文件 -->
+    <script src="https://api.danny.hk/js/form-handler.js"></script>
 </body>
 
 </html>
