@@ -589,20 +589,28 @@ document.addEventListener("DOMContentLoaded", function () {
         chatBox.classList.add('hidden');
     });
 
+    // 替换关键词映射
+    const replacements = {
+        "讯飞星火认知大模型": "AI助手",
+        "科大讯飞": "AI公司",
+        "AI": "人工智能"
+    };
+
+    // 关键词替换函数
+    function replaceKeywords(text) {
+        return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
+    }
+
     // 发送消息
-    function sendMessage() {
+    sendBtn.addEventListener('click', function() {
         let message = chatInput.value.trim();
         if (message === "") return;
 
-        // 显示用户消息
+        // 用户消息显示
         chatContent.innerHTML += `<div class="text-right text-blue-600 my-2">你：${message}</div>`;
         chatInput.value = "";
-        chatContent.scrollTop = chatContent.scrollHeight; // 滚动到底部
-const replacements = {
-    "讯飞星火认知大模型": "AI助手",
-    "科大讯飞": "AI公司"
-};
-        // 发送请求到后端
+
+        // 发送请求
         fetch('https://api.danny.hk/spark.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -611,19 +619,16 @@ const replacements = {
         .then(response => response.json())
         .then(data => {
             if (data.message) {
-                function replaceKeywords(text) {
-                return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
-                }
-                chatContent.innerHTML += `<div class="text-left text-gray-700 my-2">助手：${data.message}</div>`;
-            } else {
-                chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：服务器无响应</div>`;
+                // ✅ 替换关键词
+                let modifiedMessage = replaceKeywords(data.message);
+
+                // 显示助手回复
+                chatContent.innerHTML += `<div class="text-left text-gray-700 my-2">助手：${modifiedMessage}</div>`;
             }
-            chatContent.scrollTop = chatContent.scrollHeight; // 滚动到底部
         })
         .catch(err => {
             chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：无法连接服务器</div>`;
         });
-    }
 
     // 点击按钮发送消息
     sendBtn.addEventListener('click', sendMessage);
