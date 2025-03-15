@@ -601,8 +601,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
     }
 
-    // 发送消息
-    sendBtn.addEventListener('click', function() {
+    // **封装消息发送逻辑**
+    function sendMessage() {
         let message = chatInput.value.trim();
         if (message === "") return;
 
@@ -629,11 +629,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(err => {
             chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：无法连接服务器</div>`;
         });
+    }
 
-    // 点击按钮发送消息
+    // ✅ 点击按钮发送消息
     sendBtn.addEventListener('click', sendMessage);
 
-    // 按 Enter 发送消息
+    // ✅ 按 Enter 发送消息
     chatInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             event.preventDefault(); // 防止回车换行
