@@ -39,22 +39,22 @@
             <a href="contact.html" class="btn btn-primary">立即咨询</a>
         </div>
     </div>
-    <!-- ✅ 悬浮聊天按钮，固定在右侧中间 -->
+     <!-- ✅ 悬浮聊天按钮（固定在右侧中间） -->
     <button id="chatBtn" class="fixed top-1/2 right-5 -translate-y-1/2 bg-blue-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center w-14 h-14 z-50">
         <i class="fas fa-robot text-xl"></i> <!-- 机器人图标 -->
     </button>
 
-    <!-- ✅ AI 聊天框（默认隐藏） -->
+    <!-- ✅ AI 聊天框（默认隐藏，50% 窗口大小） -->
     <div id="chatBox" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-        <div class="bg-white w-96 rounded-lg shadow-lg p-4 flex flex-col">
+        <div class="bg-white w-1/2 h-1/2 rounded-lg shadow-lg p-4 flex flex-col">
             <!-- 头部 -->
             <div class="flex justify-between items-center border-b pb-2">
                 <h3 class="text-lg font-semibold">智能助手</h3>
                 <button id="closeChat" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
             </div>
             
-            <!-- 聊天内容 -->
-            <div id="chatContent" class="flex-1 overflow-y-auto p-2 border rounded my-2 h-64 bg-gray-100">
+            <!-- 聊天内容（增大高度 h-80） -->
+            <div id="chatContent" class="flex-1 overflow-y-auto p-2 border rounded my-2 h-80 bg-gray-100">
                 <div class="text-left text-gray-700 my-2">助手：您好，我是 AI 助手，有什么可以帮您解答的问题吗？</div>
             </div>
 
@@ -65,6 +65,7 @@
             </div>
         </div>
     </div>
+
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         const chatBtn = document.getElementById('chatBtn');
