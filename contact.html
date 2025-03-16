@@ -127,10 +127,13 @@
             chatInput.value = "";
 
             // 发送请求
-            fetch('https://api.danny.hk/spark.php', {
+            fetch('https://ai.stratcloud.cn/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ 
+                    model: 'generalv3.5',
+                    messages: [{ role: "user", content: message }]
+                })
             })
             .then(response => response.json())
             .then(data => {
