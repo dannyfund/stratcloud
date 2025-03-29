@@ -610,14 +610,20 @@
                         专注于信息技术领域，提供云计算解决方案、软件开发、AI应用、系统集成和技术咨询服务。
                     </p>
                     <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <!-- 微信图标 - 点击弹出二维码 -->
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition-colors"
+                            id="wechatBtn">
                             <i class="fab fa-weixin text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-weibo text-xl"></i>
+                        <!-- 推特图标 - 链接到推特 -->
+                        <a href="https://twitter.com/StratCloud" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin text-xl"></i>
+                        <!-- 电报图标 - 链接到Telegram -->
+                        <a href="https://t.me/StratCloud" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-telegram text-xl"></i>
                         </a>
                     </div>
                 </div>
@@ -688,6 +694,27 @@
             </div>
         </div>
     </footer>
+    <!-- 微信二维码弹窗 -->
+    <div id="wechatModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold flex items-center">
+                    <i class="fab fa-weixin text-green-500 mr-2"></i>
+                    微信二维码
+                </h3>
+                <button id="closeWechat"
+                    class="text-gray-500 hover:text-gray-800 text-2xl focus:outline-none">&times;</button>
+            </div>
+            <div class="flex justify-center">
+                <div class="w-48 h-48 bg-gray-100 flex items-center justify-center">
+                    <!-- 替换为实际的微信二维码图片 -->
+                    <img src="images/wechat-qr.png" alt="微信二维码" class="max-w-full max-h-full"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'%3E%3Crect width=\'150\' height=\'150\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'75\' y=\'75\' font-family=\'Arial\' font-size=\'12\' fill=\'%23333\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E微信二维码%3C/text%3E%3C/svg%3E';">
+                </div>
+            </div>
+            <p class="text-center text-gray-600 mt-4">扫描二维码添加我们的微信</p>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const chatBtn = document.getElementById('chatBtn');
@@ -759,6 +786,27 @@
                     sendMessage();
                 }
             });
+        });
+        // 微信二维码弹窗
+        const wechatBtn = document.getElementById('wechatBtn');
+        const wechatModal = document.getElementById('wechatModal');
+        const closeWechat = document.getElementById('closeWechat');
+
+        // 打开微信二维码弹窗
+        wechatBtn.addEventListener('click', function () {
+            wechatModal.classList.remove('hidden');
+        });
+
+        // 关闭微信二维码弹窗
+        closeWechat.addEventListener('click', function () {
+            wechatModal.classList.add('hidden');
+        });
+
+        // 点击弹窗外部区域关闭弹窗
+        wechatModal.addEventListener('click', function (e) {
+            if (e.target === wechatModal) {
+                wechatModal.classList.add('hidden');
+            }
         });
     </script>
 
