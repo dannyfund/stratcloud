@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function () {
+    // 移动端菜单切换
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', function () {
             mobileMenu.classList.toggle('hidden');
         });
     }
 
-    // Smooth scrolling for navigation links
+    // 平滑滚动到锚点
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
             const targetId = this.getAttribute('href');
@@ -19,86 +19,122 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // If mobile menu is open, close it
+                // 关闭移动菜单（如果打开）
                 if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
 
+                // 平滑滚动
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Adjust for header height
+                    top: targetElement.offsetTop - 80, // 考虑固定头部的高度
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Form submission handling
-    const contactForm = document.querySelector('#contact form');
+    // 表单验证
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('请填写必填字段：姓名、邮箱和消息内容');
+
+            // 获取表单字段
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const responseMessage = document.getElementById('responseMessage');
+
+            // 简单验证
+            if (!name || !email || !phone || !message) {
+                responseMessage.innerHTML = '<p class="text-red-600">请填写所有字段</p>';
                 return;
             }
-            
-            // In a real application, you would send this data to a server
-            console.log('Form submitted:', { name, email, phone, message });
-            
-            // Show success message
-            alert('消息已发送，我们将尽快与您联系！');
-            
-            // Reset form
-            contactForm.reset();
+
+            // 邮箱格式验证
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                responseMessage.innerHTML = '<p class="text-red-600">请输入有效的邮箱地址</p>';
+                return;
+            }
+
+            // 模拟表单提交
+            responseMessage.innerHTML = '<p class="text-blue-600">正在发送...</p>';
+
+            // 这里可以添加实际的表单提交逻辑
+            // 为了演示，我们使用 setTimeout 模拟异步请求
+            setTimeout(function () {
+                responseMessage.innerHTML = '<p class="text-green-600">消息已成功发送！我们会尽快回复您。</p>';
+                contactForm.reset();
+            }, 1500);
         });
     }
 
-    // Animate on scroll (simple implementation)
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                element.classList.add('animated');
+    // 聊天功能优化
+    const chatBtn = document.getElementById('chatBtn');
+    const chatBox = document.getElementById('chatBox');
+    const closeChat = document.getElementById('closeChat');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
+    const chatContent = document.getElementById('chatContent');
+
+    if (chatBtn && chatBox && closeChat) {
+        // 打开聊天框
+        chatBtn.addEventListener('click', function () {
+            chatBox.classList.remove('hidden');
+        });
+
+        // 关闭聊天框
+        closeChat.addEventListener('click', function () {
+            chatBox.classList.add('hidden');
+        });
+
+        // 点击聊天框外部关闭
+        chatBox.addEventListener('click', function (e) {
+            if (e.target === chatBox) {
+                chatBox.classList.add('hidden');
             }
         });
     }
 
-    // Call once on load
-    animateOnScroll();
-    
-    // Add scroll event listener
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Initialize map (placeholder function - would use a real map API in production)
-    function initMap() {
-        const mapContainer = document.querySelector('.map-container');
-        if (mapContainer) {
-            mapContainer.innerHTML = `
-                <div class="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
-                    <div class="text-center">
-                        <svg class="w-12 h-12 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <p class="text-gray-600">四川省成都市武侯区高攀路26号-1</p>
-                    </div>
-                </div>
-            `;
-        }
+    // 页面滚动动画
+    function revealOnScroll() {
+        const elements = document.querySelectorAll('.reveal');
+        const windowHeight = window.innerHeight;
+
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) {
+                element.classList.add('revealed');
+            }
+        });
     }
-    
-    // Initialize map
-    initMap();
+
+    // 添加滚动监听
+    window.addEventListener('scroll', revealOnScroll);
+
+    // 初始检查
+    revealOnScroll();
 });
+
+// 地图初始化函数
+function initMap() {
+    if (!document.getElementById('map')) return;
+
+    // 检查 Leaflet 是否已加载
+    if (typeof L !== 'undefined') {
+        const map = L.map('map').setView([30.6517, 104.0658], 15); // 成都的经纬度
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([30.6517, 104.0658]).addTo(map)
+            .bindPopup('四川省成都市武侯区高攀路26号-1')
+            .openPopup();
+    }
+}
+
+// 当页面加载完成后初始化地图
+window.addEventListener('load', initMap);

@@ -1,147 +1,574 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系统集成 - StratCloud</title>
-    <link rel="stylesheet" href="https://api.danny.hk/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://api.danny.hk/css/all.min.css"> <!-- FontAwesome -->
-    <script src="https://cdn.tailwindcss.com"></script> <!-- 引入 Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>系统集成 - 成都云策金科科技有限公司</title>
+    <meta name="description" content="成都云策金科科技有限公司提供专业的系统集成服务，包括设备系统集成、应用系统集成和数据集成，让IT系统高效协同，提高企业运营效率。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 滚动动画样式 */
+        .scroll-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .scroll-animation {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 聊天框样式优化 */
+        #chatContent {
+            scroll-behavior: smooth;
+        }
+
+        #chatContent div {
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+
+        #chatContent div.text-right {
+            background-color: #e9f5ff;
+            margin-left: auto;
+        }
+
+        #chatContent div.text-left {
+            background-color: #f5f5f5;
+            margin-right: auto;
+        }
+    </style>
 </head>
-<body>
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">StratCloud</a>
-        </div>
-    </nav>
-
-    <div class="container mt-5">
-        <h1 class="text-center">系统集成</h1>
-        <p class="text-center text-muted">让IT系统高效协同，提高企业运营效率。</p>
-
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <img src="system-integration.jpg" class="img-fluid" alt="系统集成">
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- 头部导航 -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <div class="text-2xl font-bold text-gradient">StratCloud</div>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-sm font-medium hover:text-blue-600 transition-colors">首页</a>
+                <a href="index.html#about" class="text-sm font-medium hover:text-blue-600 transition-colors">关于我们</a>
+                <a href="index.html#services" class="text-sm font-medium hover:text-blue-600 transition-colors">服务</a>
+                <a href="index.html#partners" class="text-sm font-medium hover:text-blue-600 transition-colors">合作伙伴</a>
+                <a href="index.html#contact" class="text-sm font-medium hover:text-blue-600 transition-colors">联系我们</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="col-md-6">
-                <h3>我们的服务</h3>
-                <ul>
-                    <li><strong>设备系统集成</strong> - 服务器、存储、网络设备优化。</li>
-                    <li><strong>应用系统集成</strong> - ERP、CRM、SCM等企业软件无缝对接。</li>
-                    <li><strong>数据集成</strong> - 提高数据共享能力，优化企业决策。</li>
-                </ul>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="index.html#home" class="block py-2 text-sm font-medium hover:text-blue-600">首页</a>
+                <a href="index.html#about" class="block py-2 text-sm font-medium hover:text-blue-600">关于我们</a>
+                <a href="index.html#services" class="block py-2 text-sm font-medium hover:text-blue-600">服务</a>
+                <a href="index.html#partners" class="block py-2 text-sm font-medium hover:text-blue-600">合作伙伴</a>
+                <a href="index.html#contact" class="block py-2 text-sm font-medium hover:text-blue-600">联系我们</a>
             </div>
         </div>
+    </header>
 
-        <div class="text-center mt-4">
-            <a href="contact.html" class="btn btn-primary">立即咨询</a>
+    <!-- 页面标题 -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">系统集成</h1>
+            <p class="text-xl max-w-3xl mx-auto">让IT系统高效协同，提高企业运营效率</p>
         </div>
-    </div>
- <!-- ✅ 悬浮聊天按钮（固定在右侧中间） -->
-    <button id="chatBtn" class="fixed top-1/2 right-5 -translate-y-1/2 bg-blue-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center w-14 h-14 z-50">
-        <i class="fas fa-robot text-xl"></i> <!-- 机器人图标 -->
+    </section>
+
+    <!-- 主要内容 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">我们的服务</h2>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">设备系统集成</h3>
+                                <p class="text-gray-700">服务器、存储、网络设备优化，构建高效稳定的IT基础设施</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">应用系统集成</h3>
+                                <p class="text-gray-700">ERP、CRM、SCM等企业软件无缝对接，打通业务流程</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">数据集成</h3>
+                                <p class="text-gray-700">提高数据共享能力，打破数据孤岛，优化企业决策</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">安全集成</h3>
+                                <p class="text-gray-700">全面的安全解决方案，保障系统和数据安全</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="contact.html"
+                            class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                            立即咨询
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div
+                        class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl overflow-hidden shadow-lg h-80 flex items-center justify-center">
+                        <i class="fas fa-network-wired text-white text-8xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系统集成优势 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 scroll-element">
+                <h2 class="text-3xl font-bold mb-4">我们的优势</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 scroll-element">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 mx-auto">
+                        <i class="fas fa-users-cog text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">专业团队</h3>
+                    <p class="text-gray-700 text-center">
+                        拥有经验丰富的系统集成专家团队，具备多年行业经验和专业认证
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 scroll-element">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 mx-auto">
+                        <i class="fas fa-project-diagram text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">定制方案</h3>
+                    <p class="text-gray-700 text-center">
+                        根据企业实际需求，提供量身定制的系统集成解决方案
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 scroll-element">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 mx-auto">
+                        <i class="fas fa-headset text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">全程服务</h3>
+                    <p class="text-gray-700 text-center">
+                        从需求分析、方案设计到实施部署、运维支持，提供全生命周期服务
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系统集成流程 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 scroll-element">
+                <h2 class="text-3xl font-bold mb-4">系统集成流程</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="relative">
+                <!-- 流程线 -->
+                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-blue-200 -translate-y-1/2 z-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
+                    <div class="flex flex-col items-center scroll-element">
+                        <div
+                            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4 relative">
+                            <span class="text-xl font-bold">01</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-center">需求分析</h3>
+                        <p class="text-gray-700 text-center text-sm">
+                            深入了解企业业务流程和IT需求
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center scroll-element">
+                        <div
+                            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4">
+                            <span class="text-xl font-bold">02</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-center">方案设计</h3>
+                        <p class="text-gray-700 text-center text-sm">
+                            制定符合企业需求的集成方案
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center scroll-element">
+                        <div
+                            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4">
+                            <span class="text-xl font-bold">03</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-center">实施部署</h3>
+                        <p class="text-gray-700 text-center text-sm">
+                            专业团队执行系统集成实施
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center scroll-element">
+                        <div
+                            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4">
+                            <span class="text-xl font-bold">04</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-center">测试验收</h3>
+                        <p class="text-gray-700 text-center text-sm">
+                            全面测试，确保系统稳定运行
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center scroll-element">
+                        <div
+                            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white mb-4">
+                            <span class="text-xl font-bold">05</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-center">运维支持</h3>
+                        <p class="text-gray-700 text-center text-sm">
+                            提供长期技术支持和运维服务
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成功案例 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 scroll-element">
+                <h2 class="text-3xl font-bold mb-4">成功案例</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 scroll-element">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-building text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">某大型制造企业ERP系统集成</h3>
+                        <p class="text-gray-700 mb-4">
+                            为客户实现了ERP与MES、SCM等系统的无缝集成，提高了生产效率30%，降低了库存成本20%。
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2024年</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 scroll-element">
+                    <div class="h-48 bg-gradient-to-r from-indigo-400 to-indigo-500 flex items-center justify-center">
+                        <i class="fas fa-hospital text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">医疗机构信息系统整合</h3>
+                        <p class="text-gray-700 mb-4">
+                            整合医院HIS、LIS、PACS等系统，实现医疗数据共享和业务协同，提升医疗服务质量和效率。
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2023年</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 scroll-element">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-university text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">金融机构数据中心建设</h3>
+                        <p class="text-gray-700 mb-4">
+                            为某银行构建高可用、高安全的数据中心，整合多个业务系统，提升数据处理能力和业务连续性。
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>2023年</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA部分 -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">准备好提升您的IT系统效能了吗？</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">联系我们，获取专业的系统集成解决方案，让您的业务流程更加高效、协同</p>
+            <a href="contact.html"
+                class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                立即咨询
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- 悬浮聊天按钮 -->
+    <button id="chatBtn"
+        class="fixed bottom-5 right-5 bg-blue-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center w-14 h-14 hover:bg-blue-700 transition-colors z-50">
+        <i class="fas fa-robot text-xl"></i>
     </button>
 
-    <!-- ✅ AI 聊天框（默认隐藏，50% 窗口大小） -->
+    <!-- 聊天框 -->
     <div id="chatBox" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-        <div class="bg-white w-1/2 h-1/2 rounded-lg shadow-lg p-4 flex flex-col">
-            <!-- 头部 -->
-            <div class="flex justify-between items-center border-b pb-2">
-                <h3 class="text-lg font-semibold">智能助手</h3>
-                <button id="closeChat" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
-            </div>
-            
-            <!-- 聊天内容（增大高度 h-80） -->
-            <div id="chatContent" class="flex-1 overflow-y-auto p-2 border rounded my-2 h-80 bg-gray-100">
-                <div class="text-left text-gray-700 my-2">助手：您好，我是 AI 助手，有什么可以帮您解答的问题吗？</div>
+        <div class="bg-white w-11/12 md:w-4/5 max-w-lg rounded-lg shadow-lg p-6 flex flex-col max-h-[90vh]">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-lg font-semibold flex items-center">
+                    <i class="fas fa-robot text-blue-600 mr-2"></i>
+                    智能助手
+                </h3>
+                <button id="closeChat"
+                    class="text-gray-500 hover:text-gray-800 text-2xl focus:outline-none">&times;</button>
             </div>
 
-            <!-- 输入框 -->
-            <div class="flex mt-2">
-                <input id="chatInput" type="text" class="flex-1 p-2 border rounded" placeholder="输入消息...">
-                <button id="sendBtn" class="bg-blue-500 text-white p-2 ml-2 rounded">发送</button>
+            <div id="chatContent" class="flex-1 overflow-y-auto p-4 my-4 bg-gray-50 rounded-lg min-h-[300px]">
+                <div class="text-left text-gray-700 my-2">助手：您好，我是云策AI助手，有什么可以帮您解答的问题吗？</div>
+            </div>
+
+            <div class="flex border-t pt-3">
+                <input id="chatInput" type="text"
+                    class="flex-1 p-3 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="输入您的问题...">
+                <button id="sendBtn"
+                    class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-r-lg transition-colors">
+                    <i class="fas fa-paper-plane mr-1"></i> 发送
+                </button>
             </div>
         </div>
     </div>
 
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">成都云策金科科技有限公司</h3>
+                    <p class="text-gray-400 mb-4">
+                        专注于信息技术领域，提供云计算解决方案、软件开发、AI应用、系统集成和技术咨询服务。
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">快速导航</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition-colors">首页</a>
+                        </li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a>
+                        </li>
+                        <li><a href="index.html#services"
+                                class="text-gray-400 hover:text-white transition-colors">服务</a></li>
+                        <li><a href="index.html#partners"
+                                class="text-gray-400 hover:text-white transition-colors">合作伙伴</a></li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-gray-400">四川省成都市武侯区高攀路26号-1</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <a href="mailto:contact@stratcloud.cn"
+                                class="text-gray-400 hover:text-white transition-colors">contact@stratcloud.cn</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">www.stratcloud.cn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 滚动动画
+        function checkScroll() {
+            const elements = document.querySelectorAll('.scroll-element');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight * 0.9) {
+                    element.classList.add('scroll-animation');
+                }
+            });
+        }
+
+        // 初始检查
+        window.addEventListener('load', checkScroll);
+        // 滚动时检查
+        window.addEventListener('scroll', checkScroll);
+
+        // 聊天功能
         const chatBtn = document.getElementById('chatBtn');
         const chatBox = document.getElementById('chatBox');
         const closeChat = document.getElementById('closeChat');
-        const sendBtn = document.getElementById('sendBtn');
         const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
         const chatContent = document.getElementById('chatContent');
 
         // 打开聊天框
-        chatBtn.addEventListener('click', function() {
+        chatBtn.addEventListener('click', function () {
             chatBox.classList.remove('hidden');
         });
 
         // 关闭聊天框
-        closeChat.addEventListener('click', function() {
+        closeChat.addEventListener('click', function () {
             chatBox.classList.add('hidden');
         });
 
-        // 替换关键词映射
-        const replacements = {
-            "讯飞星火认知大模型": "AI助手",
-            "科大讯飞": "AI公司",
-            "AI": "人工智能"
-        };
-
-        // 关键词替换函数
-        function replaceKeywords(text) {
-            return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
-        }
-
-        // **封装消息发送逻辑**
+        // 发送消息
         function sendMessage() {
-            let message = chatInput.value.trim();
-            if (message === "") return;
+            const message = chatInput.value.trim();
+            if (message) {
+                // 添加用户消息
+                const userDiv = document.createElement('div');
+                userDiv.className = 'text-right text-gray-700 my-2';
+                userDiv.textContent = '您：' + message;
+                chatContent.appendChild(userDiv);
 
-            // 用户消息显示
-            chatContent.innerHTML += `<div class="text-right text-blue-600 my-2">你：${message}</div>`;
-            chatInput.value = "";
+                // 清空输入框
+                chatInput.value = '';
 
-            // 发送请求
-            fetch('https://api.danny.hk/spark.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message) {
-                    // ✅ 替换关键词
-                    let modifiedMessage = replaceKeywords(data.message);
+                // 滚动到底部
+                chatContent.scrollTop = chatContent.scrollHeight;
 
-                    // 显示助手回复
-                    chatContent.innerHTML += `<div class="text-left text-gray-700 my-2">助手：${modifiedMessage}</div>`;
-                }
-            })
-            .catch(err => {
-                chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：无法连接服务器</div>`;
-            });
+                // 模拟助手回复
+                setTimeout(() => {
+                    const botDiv = document.createElement('div');
+                    botDiv.className = 'text-left text-gray-700 my-2';
+
+                    // 根据问题提供相关回复
+                    let reply = '';
+                    const lowerMsg = message.toLowerCase();
+
+                    if (lowerMsg.includes('价格') || lowerMsg.includes('费用') || lowerMsg.includes('多少钱')) {
+                        reply = '我们的系统集成服务价格根据项目规模和复杂度而定，建议您联系我们的销售团队获取详细报价。';
+                    } else if (lowerMsg.includes('周期') || lowerMsg.includes('时间')) {
+                        reply = '系统集成项目周期通常在1-6个月不等，具体取决于项目规模和复杂度。我们会在项目启动前提供详细的时间规划。';
+                    } else if (lowerMsg.includes('案例') || lowerMsg.includes('客户')) {
+                        reply = '我们服务过多家行业领先企业，包括制造业、医疗、金融等领域的知名客户。您可以在我们的案例页面查看更多详情。';
+                    } else if (lowerMsg.includes('联系') || lowerMsg.includes('咨询')) {
+                        reply = '您可以通过页面底部的联系方式与我们取得联系，或者直接拨打400-888-9999咨询详情。';
+                    } else {
+                        reply = '感谢您的咨询。关于系统集成的更多信息，建议您与我们的专业顾问联系，他们将为您提供最适合的解决方案。';
+                    }
+
+                    botDiv.textContent = '助手：' + reply;
+                    chatContent.appendChild(botDiv);
+
+                    // 滚动到底部
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                }, 800);
+            }
         }
 
-        // ✅ 点击按钮发送消息
+        // 发送按钮点击事件
         sendBtn.addEventListener('click', sendMessage);
 
-        // ✅ 按 Enter 发送消息
-        chatInput.addEventListener('keypress', function (event) {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // 防止回车换行
+        // 输入框回车事件
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
                 sendMessage();
             }
         });
-    });
     </script>
-
-    <footer class="text-center mt-5 py-3 bg-light">
-        © 2025 StratCloud - 系统集成
-    </footer>
-
 </body>
+
 </html>

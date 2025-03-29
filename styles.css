@@ -17,7 +17,7 @@ body {
 
 /* Hero section styles */
 .hero-bg {
-    background: linear-gradient(135deg, rgba(22,78,142,0.9) 0%, rgba(30,64,175,0.9) 100%), url('https://miro.medium.com/v2/resize:fit:1400/1*8F7VMxGtuiVEreskgwsJJA.jpeg');
+    background: linear-gradient(135deg, rgba(22, 78, 142, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%), url('https://miro.medium.com/v2/resize:fit:1400/1*8F7VMxGtuiVEreskgwsJJA.jpeg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -89,7 +89,7 @@ body {
     .hero-bg {
         background-position: left center;
     }
-    
+
     .feature-graphic {
         height: 300px;
     }
@@ -104,4 +104,165 @@ body {
 /* Font for decorative elements */
 .font-geist-mono {
     font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* 渐变背景替代缺失的图片 */
+.hero-bg {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    opacity: 0.9;
+}
+
+.feature-graphic {
+    background: linear-gradient(45deg, #3b82f6 0%, #2563eb 100%);
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-graphic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* 合作伙伴 logo 样式 */
+.partner-logo {
+    display: block;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* 使用 CSS 生成的图标替代实际 logo */
+.partner-tencent {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' font-weight='bold'%3E腾讯云%3C/text%3E%3C/svg%3E");
+}
+
+.partner-volcano {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' font-weight='bold'%3E火山引擎%3C/text%3E%3C/svg%3E");
+}
+
+.partner-huawei {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' font-weight='bold'%3E华为云%3C/text%3E%3C/svg%3E");
+}
+
+.partner-aws {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' font-weight='bold'%3EAWS%3C/text%3E%3C/svg%3E");
+}
+
+.partner-google {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' font-weight='bold'%3E谷歌云%3C/text%3E%3C/svg%3E");
+}
+
+/* 渐变文本效果 */
+.text-gradient {
+    background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 聊天窗口样式优化 */
+#chatBox {
+    z-index: 1000;
+}
+
+#chatContent {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+#chatContent::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chatContent::-webkit-scrollbar-track {
+    background: #f7fafc;
+}
+
+#chatContent::-webkit-scrollbar-thumb {
+    background-color: #cbd5e0;
+    border-radius: 3px;
+}
+
+.ai-chat-messages {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.ai-message {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.message-content {
+    background-color: #f0f7ff;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background-color: #e6f7ff;
+}
+
+/* 添加到现有的 styles.css 文件中 */
+
+/* 滚动显示动画 */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 服务卡片悬停效果 */
+#services .bg-white {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .bg-white:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 服务图标样式 */
+.service-icon {
+    width: 100%;
+    height: 100%;
+    stroke: #3b82f6;
+    stroke-width: 1.5;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .hero-bg {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+
+    #services .grid {
+        gap: 1rem;
+    }
 }

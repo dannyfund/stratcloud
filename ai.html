@@ -1,145 +1,468 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人工智能应用 - StratCloud</title>
-    <link rel="stylesheet" href="https://api.danny.hk/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://api.danny.hk/css/all.min.css"> <!-- FontAwesome -->
-    <script src="https://cdn.tailwindcss.com"></script> <!-- 引入 Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>人工智能应用 - 成都云策金科科技有限公司</title>
+    <meta name="description" content="成都云策金科科技有限公司提供专业的人工智能应用服务，包括AI聊天软件、AI写作辅助、AI翻译解决方案等，让AI技术赋能企业，提高效率和决策能力。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">StratCloud</a>
-        </div>
-    </nav>
-
-    <div class="container mt-5">
-        <h1 class="text-center">人工智能应用</h1>
-        <p class="text-center text-muted">让AI技术赋能企业，提高效率和决策能力。</p>
-
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h3>我们的AI解决方案</h3>
-                <ul>
-                    <li><strong>AI聊天软件</strong> - 基于ChatGPT的智能客服、自动回复。</li>
-                    <li><strong>AI写作辅助</strong> - 智能生成营销文案，提升内容生产效率。</li>
-                    <li><strong>AI翻译解决方案</strong> - 高质量机器翻译，适用于跨境电商等场景。</li>
-                </ul>
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- 头部导航 -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center">
+                <div class="text-2xl font-bold text-gradient">StratCloud</div>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-sm font-medium hover:text-blue-600 transition-colors">首页</a>
+                <a href="index.html#about" class="text-sm font-medium hover:text-blue-600 transition-colors">关于我们</a>
+                <a href="index.html#services" class="text-sm font-medium hover:text-blue-600 transition-colors">服务</a>
+                <a href="index.html#partners" class="text-sm font-medium hover:text-blue-600 transition-colors">合作伙伴</a>
+                <a href="index.html#contact" class="text-sm font-medium hover:text-blue-600 transition-colors">联系我们</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="col-md-6">
-                <img src="ai-application.jpg" class="img-fluid" alt="人工智能">
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="index.html#home" class="block py-2 text-sm font-medium hover:text-blue-600">首页</a>
+                <a href="index.html#about" class="block py-2 text-sm font-medium hover:text-blue-600">关于我们</a>
+                <a href="index.html#services" class="block py-2 text-sm font-medium hover:text-blue-600">服务</a>
+                <a href="index.html#partners" class="block py-2 text-sm font-medium hover:text-blue-600">合作伙伴</a>
+                <a href="index.html#contact" class="block py-2 text-sm font-medium hover:text-blue-600">联系我们</a>
             </div>
         </div>
+    </header>
 
-        <div class="text-center mt-4">
-            <a href="contact.html" class="btn btn-primary">立即体验</a>
+    <!-- 页面标题 -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">人工智能应用</h1>
+            <p class="text-xl max-w-3xl mx-auto">让AI技术赋能企业，提高效率和决策能力</p>
         </div>
-    </div>
-    <!-- ✅ 悬浮聊天按钮（固定在右侧中间） -->
-    <button id="chatBtn" class="fixed top-1/2 right-5 -translate-y-1/2 bg-blue-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center w-14 h-14 z-50">
-        <i class="fas fa-robot text-xl"></i> <!-- 机器人图标 -->
+    </section>
+
+    <!-- 主要内容 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">我们的AI解决方案</h2>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">AI聊天软件</h3>
+                                <p class="text-gray-700">基于大型语言模型的智能客服、自动回复系统，提升客户服务体验</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">AI写作辅助</h3>
+                                <p class="text-gray-700">智能生成营销文案、产品描述、报告等内容，提升内容生产效率</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">AI翻译解决方案</h3>
+                                <p class="text-gray-700">高质量机器翻译，适用于跨境电商、国际业务等场景，支持多语种翻译</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold">AI数据分析</h3>
+                                <p class="text-gray-700">智能数据分析和可视化，帮助企业从海量数据中挖掘价值，辅助决策</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="index.html#contact"
+                            class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                            立即咨询
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div
+                        class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl overflow-hidden shadow-lg h-80 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-8xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI应用场景 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">AI应用场景</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 mx-auto">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">智能客服</h3>
+                    <p class="text-gray-700 text-center">
+                        24/7全天候在线客服，自动回答客户问题，提高客户满意度，降低人力成本
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 mx-auto">
+                        <i class="fas fa-language text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">跨境电商</h3>
+                    <p class="text-gray-700 text-center">
+                        多语言内容翻译，产品描述自动生成，助力企业拓展国际市场
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">商业分析</h3>
+                    <p class="text-gray-700 text-center">
+                        智能数据分析，市场趋势预测，为企业决策提供数据支持
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术优势 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">我们的技术优势</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold mb-2">先进的AI模型</h3>
+                        <p class="text-gray-700">
+                            采用最新的大型语言模型技术，提供高质量的自然语言处理能力
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold mb-2">数据安全保障</h3>
+                        <p class="text-gray-700">
+                            严格的数据加密和隐私保护措施，确保企业数据安全
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold mb-2">定制化解决方案</h3>
+                        <p class="text-gray-700">
+                            根据企业特定需求，提供量身定制的AI应用解决方案
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-semibold mb-2">高性能架构</h3>
+                        <p class="text-gray-700">
+                            采用分布式计算架构，确保AI服务的高可用性和响应速度
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA部分 -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">准备好体验AI技术的力量了吗？</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">联系我们，了解如何通过AI技术提升您的业务效率和竞争力</p>
+            <a href="index.html#contact"
+                class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                立即咨询
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- 悬浮聊天按钮 -->
+    <button id="chatBtn"
+        class="fixed bottom-5 right-5 bg-blue-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center w-14 h-14 hover:bg-blue-700 transition-colors z-50">
+        <i class="fas fa-robot text-xl"></i>
     </button>
 
-    <!-- ✅ AI 聊天框（默认隐藏，50% 窗口大小） -->
+    <!-- 聊天框 -->
     <div id="chatBox" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-        <div class="bg-white w-1/2 h-1/2 rounded-lg shadow-lg p-4 flex flex-col">
-            <!-- 头部 -->
-            <div class="flex justify-between items-center border-b pb-2">
-                <h3 class="text-lg font-semibold">智能助手</h3>
-                <button id="closeChat" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
-            </div>
-            
-            <!-- 聊天内容（增大高度 h-80） -->
-            <div id="chatContent" class="flex-1 overflow-y-auto p-2 border rounded my-2 h-80 bg-gray-100">
-                <div class="text-left text-gray-700 my-2">助手：您好，我是 AI 助手，有什么可以帮您解答的问题吗？</div>
+        <div class="bg-white w-11/12 md:w-4/5 max-w-lg rounded-lg shadow-lg p-6 flex flex-col max-h-[90vh]">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-lg font-semibold flex items-center">
+                    <i class="fas fa-robot text-blue-600 mr-2"></i>
+                    智能助手
+                </h3>
+                <button id="closeChat"
+                    class="text-gray-500 hover:text-gray-800 text-2xl focus:outline-none">&times;</button>
             </div>
 
-            <!-- 输入框 -->
-            <div class="flex mt-2">
-                <input id="chatInput" type="text" class="flex-1 p-2 border rounded" placeholder="输入消息...">
-                <button id="sendBtn" class="bg-blue-500 text-white p-2 ml-2 rounded">发送</button>
+            <div id="chatContent" class="flex-1 overflow-y-auto p-4 my-4 bg-gray-50 rounded-lg min-h-[300px]">
+                <div class="text-left text-gray-700 my-2">助手：您好，我是云策AI助手，有什么可以帮您解答的问题吗？</div>
+            </div>
+
+            <div class="flex border-t pt-3">
+                <input id="chatInput" type="text"
+                    class="flex-1 p-3 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="输入您的问题...">
+                <button id="sendBtn"
+                    class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-r-lg transition-colors">
+                    <i class="fas fa-paper-plane mr-1"></i> 发送
+                </button>
             </div>
         </div>
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const chatBtn = document.getElementById('chatBtn');
-        const chatBox = document.getElementById('chatBox');
-        const closeChat = document.getElementById('closeChat');
-        const sendBtn = document.getElementById('sendBtn');
-        const chatInput = document.getElementById('chatInput');
-        const chatContent = document.getElementById('chatContent');
-
-        // 打开聊天框
-        chatBtn.addEventListener('click', function() {
-            chatBox.classList.remove('hidden');
-        });
-
-        // 关闭聊天框
-        closeChat.addEventListener('click', function() {
-            chatBox.classList.add('hidden');
-        });
-
-        // 替换关键词映射
-        const replacements = {
-            "讯飞星火认知大模型": "AI助手",
-            "科大讯飞": "AI公司",
-            "AI": "人工智能"
-        };
-
-        // 关键词替换函数
-        function replaceKeywords(text) {
-            return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
-        }
-
-        // **封装消息发送逻辑**
-        function sendMessage() {
-            let message = chatInput.value.trim();
-            if (message === "") return;
-
-            // 用户消息显示
-            chatContent.innerHTML += `<div class="text-right text-blue-600 my-2">你：${message}</div>`;
-            chatInput.value = "";
-
-            // 发送请求
-            fetch('https://api.danny.hk/spark.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message) {
-                    // ✅ 替换关键词
-                    let modifiedMessage = replaceKeywords(data.message);
-
-                    // 显示助手回复
-                    chatContent.innerHTML += `<div class="text-left text-gray-700 my-2">助手：${modifiedMessage}</div>`;
-                }
-            })
-            .catch(err => {
-                chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：无法连接服务器</div>`;
-            });
-        }
-
-        // ✅ 点击按钮发送消息
-        sendBtn.addEventListener('click', sendMessage);
-
-        // ✅ 按 Enter 发送消息
-        chatInput.addEventListener('keypress', function (event) {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // 防止回车换行
-                sendMessage();
-            }
-        });
-    });
-    </script>
-    <footer class="text-center mt-5 py-3 bg-light">
-        © 2025 StratCloud - 人工智能应用
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">成都云策金科科技有限公司</h3>
+                    <p class="text-gray-400 mb-4">
+                        专注于信息技术领域，提供云计算解决方案、软件开发、AI应用、系统集成和技术咨询服务。
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">快速导航</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition-colors">首页</a>
+                        </li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a>
+                        </li>
+                        <li><a href="index.html#services"
+                                class="text-gray-400 hover:text-white transition-colors">服务</a></li>
+                        <li><a href="index.html#partners"
+                                class="text-gray-400 hover:text-white transition-colors">合作伙伴</a></li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-gray-400">四川省成都市武侯区高攀路26号-1</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <a href="mailto:admin@StratCloud.cn"
+                                class="text-gray-400 hover:text-white transition-colors">admin@StratCloud.cn</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                            <a href="https://www.StratCloud.cn" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors">StratCloud.cn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-400 text-sm">© 2025 成都云策金科科技有限公司. 保留所有权利.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- 脚本 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 移动端菜单切换
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // 聊天功能
+            const chatBtn = document.getElementById('chatBtn');
+            const chatBox = document.getElementById('chatBox');
+            const closeChat = document.getElementById('closeChat');
+            const sendBtn = document.getElementById('sendBtn');
+            const chatInput = document.getElementById('chatInput');
+            const chatContent = document.getElementById('chatContent');
+
+            // 打开聊天框
+            chatBtn.addEventListener('click', function () {
+                chatBox.classList.remove('hidden');
+            });
+
+            // 关闭聊天框
+            closeChat.addEventListener('click', function () {
+                chatBox.classList.add('hidden');
+            });
+
+            // 替换关键词映射
+            const replacements = {
+                "讯飞星火认知大模型": "云策AI助手",
+                "科大讯飞": "云策金科",
+                "AI": "人工智能"
+            };
+
+            // 关键词替换函数
+            function replaceKeywords(text) {
+                return text.replace(/讯飞星火认知大模型|科大讯飞|AI/g, match => replacements[match]);
+            }
+
+            // 封装消息发送逻辑
+            function sendMessage() {
+                let message = chatInput.value.trim();
+                if (message === "") return;
+
+                // 用户消息显示
+                chatContent.innerHTML += `<div class="text-right text-blue-600 my-2">你：${message}</div>`;
+                chatInput.value = "";
+
+                // 发送请求
+                fetch('https://api.danny.hk/spark.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message) {
+                            // 替换关键词
+                            let modifiedMessage = replaceKeywords(data.message);
+
+                            // 显示助手回复
+                            chatContent.innerHTML += `<div class="text-left text-gray-700 my-2">助手：${modifiedMessage}</div>`;
+                        }
+                    })
+                    .catch(err => {
+                        chatContent.innerHTML += `<div class="text-left text-red-500 my-2">错误：无法连接服务器</div>`;
+                    });
+            }
+
+            // 点击按钮发送消息
+            sendBtn.addEventListener('click', sendMessage);
+
+            // 按 Enter 发送消息
+            chatInput.addEventListener('keypress', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // 防止回车换行
+                    sendMessage();
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
